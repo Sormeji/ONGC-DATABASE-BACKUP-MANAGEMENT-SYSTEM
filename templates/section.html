@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='section.css') }}">
+    
+    <title>ONGC Backup System</title>
+    
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .logout-btn {
+            float: right;
+            background: red;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+    
+
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="ONGC Logo">
+            <h1>ONGC Backup System - Welcome {{ username }}</h1>
+            
+        </div>
+        <nav>
+            <a href="#nas">NAS Backup</a>
+            <a href="#tape">Tape Backup</a>
+            <a href="#eds">Corporate EDS Backup</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </nav>
+    </header>
+    
+
+    <div class="container">
+
+        <!-- NAS Backup Section -->
+        <section id="nas" class="section">
+            <div class="section-container">
+                <div class="photo-box">
+                    <img src="{{ url_for('static', filename='img/NAS-backup-software.jpg') }}" alt="NAS Backup Image">
+                </div>
+                <div class="description">
+                    <h3>NAS Backup</h3>
+                    <p>The NAS Backup section ensures secure storage and management of network-attached storage.</p>
+                    <a href="{{ url_for('nas_backup') }}" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tape Backup Section -->
+        <section id="tape" class="section">
+            <div class="section-container">
+                <div class="photo-box">
+                    <img src="{{ url_for('static', filename='img/tape.jpg') }}" alt="Tape Backup Image">
+                </div>
+                <div class="description">
+                    <h3>Tape Backup</h3>
+                    <p>The Tape Backup section provides robust long-term data storage solutions.</p>
+                    <div class="sub-links">
+                        <a href="{{ url_for('room_no_1') }}">Room No 001</a>
+                        <a href="{{ url_for('logging_section') }}">Logging Sector Jorhat</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corporate EDS Backup Section -->
+        <section id="eds" class="section">
+            <div class="section-container">
+                <div class="photo-box">
+                    <img src="{{ url_for('static', filename='img/coorporate eds photo.jpg') }}" alt="Corporate EDS Backup Image">
+                </div>
+                <div class="description">
+                    <h3>Corporate EDS Backup</h3>
+                    <p>Manage and protect critical corporate information with advanced tools.</p>
+                    <a href="{{ url_for('corporate_eds') }}" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    
+
+</body>
+</html>

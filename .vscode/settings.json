@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "ongc_backup_database",
+            "database": "ongc_backup_database",
+            "username": "postgres"
+        }
+    ]
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+   <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+   <title>Dashboard</title>
+   <style>
+      html {
+         scroll-behavior: smooth;
+      }
+   </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+   <div class="logo">
+      <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo">
+      <h1>Welcome, {{ username }}</h1>
+   </div>
+   <nav>
+      <a href="#">Home</a>
+      <a href="#contact">Contact</a>
+      <a href="#aboutus">About Us</a>
+      <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+   </nav>
+</header>
+
+<!-- Backup Sections -->
+<div class="container">
+   <div class="section">
+      <div class="card">
+         <i class="ri-calendar-check-line"></i>
+         <h3>Daily Backup</h3>
+         <a href="{{ url_for('add_daily_backup') }}">
+            <button>Start Backup</button>
+         </a>
+      </div>
+      <div class="separator"></div>
+      <div class="description">
+         <h3>Daily Backup</h3>
+         <p>Create and manage daily backups to keep your data safe and up to date.</p>
+      </div>
+   </div>
+
+   <div class="section">
+      <div class="description">
+         <h3>Monthly Backup</h3>
+         <p>Monthly backups provide a reliable way to archive your data for long-term use.</p>
+      </div>
+      <div class="separator"></div>
+      <div class="card">
+         <i class="ri-calendar-line"></i>
+         <h3>Monthly Backup</h3>
+         <a href="{{ url_for('add_monthly_backup') }}">
+            <button>Start Backup</button>
+         </a>
+      </div>
+   </div>
+
+   <div class="section">
+      <div class="card">
+         <i class="ri-calendar-2-line"></i>
+         <h3>Yearly Backup</h3>
+         <a href="{{ url_for('add_yearly_backup') }}">
+            <button>Start Backup</button>
+         </a>
+      </div>
+      <div class="separator"></div>
+      <div class="description">
+         <h3>Yearly Backup</h3>
+         <p>Yearly backups are perfect for preserving critical data over the long term.</p>
+      </div>
+   </div>
+</div>
+
+<!-- Google Map -->
+<h2 style="text-align: center; margin-top: 40px; margin-bottom: 10px; color: #333;">ONGC Cinnamara Location</h2>
+
+<div style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin: 20px auto; width: 85%; text-align: center;">
+   <div id="googleMap" style="width: 80%; height: 400px; margin: 0 auto;"></div>
+</div>
+
+<script>
+   function initMap() {
+      var location = { lat: 26.7072, lng: 94.2390 };
+      var map = new google.maps.Map(document.getElementById("googleMap"), {
+         zoom: 14,
+         center: location
+      });
+   }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6XCK4ZY_6lR-TbaJ_zDFo_wqnb9Qru7A&callback=initMap"></script>
+
+<!-- About Us / Explore Us Section -->
+<section class="portlet" id="aboutus">
+   <div class="portlet-content">
+      <div class="portlet-header">
+         <h2 class="portlet-title-text"></h2>
+      </div>
+      <div class="portlet-body">
+         <div class="container glanceWrap">
+            <div class="row">
+               <div class="col-md-12 mb-0">
+                  <h2>Explore Us</h2>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6 mb-4">
+                  <div class="imgWrap">
+                     <img src="{{ url_for('static', filename='img/total_workforce.jpg') }}" width="392" height="196" alt="glance1">
+                     <div class="imgDesc">Over 27,000 dedicated professionals support ONGC’s oil & gas exploration and production.</div>
+                  </div>
+                  <div class="glance"><p><span class="head">27,000+</span> Total Workforce</p></div>
+               </div>
+
+               <div class="col-md-6 mb-4">
+                  <div class="imgWrap">
+                     <img src="{{ url_for('static', filename='img/asset_homepage.jpg') }}" width="392" height="196" alt="glance2">
+                     <div class="imgDesc">Resilient performance even during global crises. ONGC posted its highest-ever net profit.</div>
+                  </div>
+                  <div class="glance"><p><span class="head">1,12,464 million</span> Total Assets</p></div>
+               </div>
+
+               <div class="col-md-6 mb-4">
+                  <div class="imgWrap">
+                     <img src="{{ url_for('static', filename='img/glance3.webp') }}" width="392" height="196" alt="glance3">
+                     <div class="imgDesc">ONGC contributes to 70% of India's crude oil with in-house exploration and production capabilities.</div>
+                  </div>
+                  <div class="glance"><p><span class="head">71%</span> Total Production</p></div>
+               </div>
+
+               <div class="col-md-6 mb-4">
+                  <div class="imgWrap">
+                     <img src="{{ url_for('static', filename='img/glance4.webp') }}" width="392" height="196" alt="glance4">
+                     <div class="imgDesc">ONGC Videsh operates in 15 countries with 32 oil and gas assets globally.</div>
+                  </div>
+                  <div class="glance"><p>Operating in <span class="head">15 Countries</span></p></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+<!-- Footer / Contact Section -->
+<footer id="contact" class="container mt-5" style="border-top: 2px solid #ccc; padding-top: 30px;">
+   <div class="row d-flex justify-content-between align-items-start">
+      <div class="col-md-3">
+         <h2>Other Links</h2>
+         <ul class="list-unstyled pt-3">
+            <li><a href="https://ongcindia.com/web/eng/sitemap/sitemap">Sitemap</a></li>
+            <li><a href="https://ongcindia.com/web/eng/privacy-policy/privacy-policy">Privacy Policy</a></li>
+            <li><a href="https://ongcindia.com/web/eng/terms-of-use/terms-of-use">Terms of Use</a></li>
+            <li><a href="https://ongcindia.com/web/eng/disclaimer/disclaimer">Disclaimer</a></li>
+         </ul>
+      </div>
+      <div class="col-md-6">
+         <h2>Reach Us</h2>
+         <ul class="list-unstyled pt-3">
+            <li>
+               <strong>Registered Office:</strong><br>
+               Plot No. 5A-5B Nelson Mandela Road, Vasant Kunj, New Delhi, 110070<br><br>
+               <strong>Corporate Identity Number:</strong><br>
+               L74899DL1993GOI054155<br><br>
+               <strong>Telephone:</strong> 011-26750998<br>
+               <strong>Fax:</strong> 011-26750991 / 26129091<br><br>
+               <strong>Grievances:</strong><br>
+               <a href="https://grievance.ongc.co.in/" target="_blank">https://grievance.ongc.co.in</a>
+            </li>
+         </ul>
+
+         <!-- Social Icons -->
+         <ul class="list-inline pt-3">
+            <li class="list-inline-item">
+               <a href="https://www.facebook.com/ONGCLimited/" target="_blank">
+                  <img src="{{ url_for('static', filename='img/fb.jpg') }}" width="30" alt="Facebook">
+               </a>
+            </li>
+            <li class="list-inline-item">
+               <a href="https://www.instagram.com/ongcofficial/" target="_blank">
+                  <img src="{{ url_for('static', filename='img/instagram.jpg') }}" width="30" alt="Instagram">
+               </a>
+            </li>
+            <li class="list-inline-item">
+               <a href="https://twitter.com/ONGC_" target="_blank">
+                  <img src="{{ url_for('static', filename='img/twit.jpg') }}" width="30" alt="Twitter">
+               </a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</footer>
+
+</body>
+</html>

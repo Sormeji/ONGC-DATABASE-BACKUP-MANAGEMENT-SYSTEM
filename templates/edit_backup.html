@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Backup Record</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h2 class="mb-4 text-center text-primary">Edit {{ backup_type|capitalize }} Backup Record</h2>
+    <form method="POST" enctype="multipart/form-data" class="p-4 bg-white shadow rounded">
+        <div class="mb-3">
+            <label class="form-label">Backup Type</label>
+            <select name="backup_type" class="form-select" required>
+                <option value="nas" {% if record.backup_type == 'nas' %}selected{% endif %}>NAS</option>
+                <option value="room_no_1" {% if record.backup_type == 'room_no_1' %}selected{% endif %}>Room No. 1</option>
+                <option value="logging_section" {% if record.backup_type == 'logging_section' %}selected{% endif %}>Logging Section</option>
+                <option value="corporate_eds" {% if record.backup_type == 'corporate_eds' %}selected{% endif %}>Corporate EDS</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Tape Number</label>
+            <input type="text" name="tape_number" value="{{ record.tape_number }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Backup Date</label>
+            <input type="date" name="backup_date" value="{{ record.backup_date }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Server</label>
+            <input type="text" name="server" value="{{ record.server }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Operating System</label>
+            <input type="text" name="os" value="{{ record.os }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Backup Contents</label>
+            <textarea name="backup_contents" class="form-control" required>{{ record.backup_contents }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Upload Backup File</label><br>
+            {% if record.backup_file %}
+                <p>Current File: <a href="{{ url_for('static', filename='uploads/' ~ record.backup_file) }}" target="_blank">{{ record.backup_file }}</a></p>
+            {% endif %}
+            <input type="file" name="backup_file" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Backup Format</label>
+            <input type="text" name="backup_format" value="{{ record.backup_format }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Backup Media</label>
+            <input type="text" name="backup_media" value="{{ record.backup_media }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Remarks</label>
+            <textarea name="remarks" class="form-control">{{ record.remarks }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Tape Reuse Date</label>
+            <input type="date" name="tape_reuse_date" value="{{ record.tape_reuse_date }}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Extra Info</label>
+            <textarea name="extra_info" class="form-control">{{ record.extra_info }}</textarea>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success">Update Record</button>
+            <a href="{{ url_for('dashboard') if session.get('role') == 'admin' else url_for('section') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

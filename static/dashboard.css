@@ -1,0 +1,360 @@
+/* ================= Global Styles ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    background: url('../img/portimage.jpg') no-repeat center center;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 0;
+}
+
+/* ================= Header ================= */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #00274d;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+/* ================= Navigation ================= */
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* ================= Main Content ================= */
+.container {
+    max-width: 1200px;
+    margin: 100px auto 2rem auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ================= Section Styling ================= */
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ================= Image Box Styling ================= */
+.photo-box {
+    width: 40%;
+    max-width: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.photo-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* ================= Description Box ================= */
+.description {
+    flex: 1;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.description h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #00274d;
+}
+
+.description p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* ================= Buttons ================= */
+.btn {
+    display: inline-block;
+    background: #00274d;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #ff6600;
+}
+
+/* ================= Sub-links ================= */
+.sub-links {
+    margin-top: 15px;
+}
+
+.sub-links a {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.sub-links a:hover {
+    color: #ff6600;
+    text-decoration: underline;
+}
+
+/* ================= Card Styling ================= */
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 2rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    max-width: 300px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card i {
+    font-size: 4rem;
+    color: #8b3131;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.card button {
+    background: #b81515;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card button:hover {
+    background: #8b0000;
+}
+
+/* ================= Responsive Design ================= */
+@media (max-width: 1024px) {
+    .section {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .photo-box {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .description {
+        padding: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 0.5rem;
+    }
+
+    .backup-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    /* Override Bootstrap if used */
+    body, h1, h2, h3, h4, h5, h6, p, a, button {
+        font-family: "Ubuntu", sans-serif !important;
+    }
+
+    .container, .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .row, .col, .col-12, .col-md-6, .col-lg-4 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .btn, .card h3, .description h3 {
+        font-weight: bold !important;
+    }
+
+    .bg-light, .bg-white {
+        background-color: transparent !important;
+    }
+
+    .card {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid #ddd !important;
+    }
+
+    header {
+        margin-bottom: 0 !important;
+    }
+
+    header .logo img {
+        margin-right: 1rem !important;
+    }
+
+    .section, .photo-box, .description {
+        flex: 1 1 auto !important;
+    }
+}
+
+/* ================= ONGC 'At A Glance' Section ================= */
+.portlet-title-text,
+.glanceWrap h2 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    color: #b00;
+    margin-bottom: 1rem;
+}
+
+.imgWrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.imgWrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.imgWrap:hover img {
+    transform: scale(1.05);
+}
+
+.imgDesc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease-in-out;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.imgWrap:hover .imgDesc {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.glance {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.glance .head {
+    color: #b00;
+    font-size: 20px;
+    font-weight: bold;
+}

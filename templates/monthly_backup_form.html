@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Backup Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='backup.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Monthly Backup Form</h2>
+        <form action="{{ url_for('add_monthly_backup') }}" method="POST" enctype="multipart/form-data">
+            
+            <input type="hidden" name="backup_frequency" value="monthly">
+            <label for="backup_type">Backup Type:</label>
+            <select id="backup_type" name="backup_type" required>
+                <option value="">-- Select Backup Type --</option>
+                <option value="nas">NAS Backup</option>
+                <option value="room_no_1">Room No 1</option>
+                <option value="logging_section">Logging Section</option>
+                <option value="corporate_eds">Corporate EDS</option>
+            </select>
+
+            <label for="tape_number">Tape Number:</label>
+            <input type="text" id="tape_number" name="tape_number" required>
+
+            <label for="backup_date">Backup Date:</label>
+            <input type="date" id="backup_date" name="backup_date" required>
+
+            <label for="server">Server Name:</label>
+            <input type="text" id="server" name="server" required>
+
+            <label for="os">Operating System:</label>
+            <input type="text" id="os" name="os" required>
+
+            <label for="backup_contents">Backup Contents:</label>
+            <textarea id="backup_contents" name="backup_contents" rows="3" required></textarea>
+
+            <label for="backup_file">Upload Backup File:</label>
+            <input type="file" id="backup_file" name="backup_file" accept=".zip,.tar,.gz,.7z,.rar,.bak,.jpeg,.jpg,.pdf">
+            
+            <label for="backup_format">Backup Format:</label>
+            <select id="backup_format" name="backup_format" required>
+                <option value="">-- Select Backup Format --</option>
+                <option value="tar">TAR</option>
+                <option value="dump">DUMP</option>
+            </select>
+            
+            <label for="backup_media">Backup Media:</label>
+            <select id="backup_media" name="backup_media" required>
+                <option value="">-- Select Backup Media --</option>
+                <option value="lto-4">LTO-4</option>
+                <option value="lto-5">LTO-5</option>
+                <option value="lto-8">LTO-8</option>
+                <option value="nas-storage">NAS-Storage</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="remarks">Remarks:</label>
+            <textarea id="remarks" name="remarks" rows="2"></textarea>
+
+            <label for="tape_reuse_date">Tape Reuse Date:</label>
+            <input type="date" id="tape_reuse_date" name="tape_reuse_date">
+
+            <label for="extra_info">Extra Info:</label>
+            <textarea id="extra_info" name="extra_info" rows="3"></textarea>
+
+            <button type="submit">Submit Monthly Backup</button>
+
+        </form>
+    </div>
+</body>
+</html>

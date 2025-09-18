@@ -1,0 +1,152 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+
+body {
+    background: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background: #00274d;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffcc00;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 3rem;
+    padding: 3rem;
+}
+
+/* Section Container */
+.section-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center; /* Centers the content vertically */
+}
+
+/* Photo Box Styling */
+.photo-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 40%; /* Balanced with description */
+    height: 300px; /* Uniform height */
+    background: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures proper scaling without distortion */
+    border-radius: 8px;
+}
+
+/* Description Box */
+.description {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #00274d;
+}
+
+.description p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: #00274d;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #ff6600;
+}
+
+/* Sub-links inside Tape Backup */
+.sub-links {
+    margin-top: 15px;
+}
+
+.sub-links a {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.sub-links a:hover {
+    color: #ff6600;
+    text-decoration: underline;
+}

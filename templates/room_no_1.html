@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room No 1 Backup Records</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form.css') }}">
+</head>
+<body>
+    <h2>Room No 1 Backup Records</h2>
+    <button onclick="window.print()" class="print-btn">Print Records</button>
+
+
+    <!-- Daily Backups -->
+    <h3>Daily Backups</h3>
+    <table border="1">
+        <tr>
+            <th>Tape Number</th>
+            <th>Backup Date</th>
+            <th>Server Name</th>
+            <th>OS</th>
+            <th>Contents</th>
+            <th>Format</th>
+            <th>Media</th>
+            <th>Remarks</th>
+            <th>Reuse Date</th>
+            <th>Extra Info</th>
+            <th>Backup File</th>
+        </tr>
+        {% for record in daily_records %}
+        <tr>
+            <td>{{ record.tape_number }}</td>
+            <td>{{ record.backup_date }}</td>
+            <td>{{ record.server }}</td>
+            <td>{{ record.os }}</td>
+            <td>{{ record.backup_contents }}</td>
+            <td>{{ record.backup_format }}</td>
+            <td>{{ record.backup_media }}</td>
+            <td>{{ record.remarks }}</td>
+            <td>{{ record.tape_reuse_date }}</td>
+            <td>{{ record.extra_info }}</td>
+            <td>
+                {% if record.backup_file %}
+                    <a href="{{ url_for('static', filename='uploads/' ~ record.backup_file) }}" target="_blank">View File</a>
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Monthly Backups -->
+    <h3>Monthly Backups</h3>
+    <table border="1">
+        <tr>
+            <th>Tape Number</th>
+            <th>Backup Date</th>
+            <th>Server Name</th>
+            <th>OS</th>
+            <th>Contents</th>
+            <th>Format</th>
+            <th>Media</th>
+            <th>Remarks</th>
+            <th>Reuse Date</th>
+            <th>Extra Info</th>
+            <th>Backup File</th>
+        </tr>
+        {% for record in monthly_records %}
+        <tr>
+            <td>{{ record.tape_number }}</td>
+            <td>{{ record.backup_date }}</td>
+            <td>{{ record.server }}</td>
+            <td>{{ record.os }}</td>
+            <td>{{ record.backup_contents }}</td>
+            <td>{{ record.backup_format }}</td>
+            <td>{{ record.backup_media }}</td>
+            <td>{{ record.remarks }}</td>
+            <td>{{ record.tape_reuse_date }}</td>
+            <td>{{ record.extra_info }}</td>
+            <td>
+                {% if record.backup_file %}
+                    <a href="{{ url_for('static', filename='uploads/' ~ record.backup_file) }}" target="_blank">View File</a>
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Yearly Backups -->
+    <h3>Yearly Backups</h3>
+    <table border="1">
+        <tr>
+            <th>Tape Number</th>
+            <th>Backup Date</th>
+            <th>Server Name</th>
+            <th>OS</th>
+            <th>Contents</th>
+            <th>Format</th>
+            <th>Media</th>
+            <th>Remarks</th>
+            <th>Reuse Date</th>
+            <th>Extra Info</th>
+            <th>Backup File</th>
+        </tr>
+        {% for record in yearly_records %}
+        <tr>
+            <td>{{ record.tape_number }}</td>
+            <td>{{ record.backup_date }}</td>
+            <td>{{ record.server }}</td>
+            <td>{{ record.os }}</td>
+            <td>{{ record.backup_contents }}</td>
+            <td>{{ record.backup_format }}</td>
+            <td>{{ record.backup_media }}</td>
+            <td>{{ record.remarks }}</td>
+            <td>{{ record.tape_reuse_date }}</td>
+            <td>{{ record.extra_info }}</td>
+            <td>
+                {% if record.backup_file %}
+                    <a href="{{ url_for('static', filename='uploads/' ~ record.backup_file) }}" target="_blank">View File</a>
+                {% else %}
+                    N/A
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="{{ url_for('section') }}">Back</a>
+
+</body>
+</html>
